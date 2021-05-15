@@ -1,0 +1,36 @@
+{
+  "name": "ngx-fixed-footer",
+  "version": "0.0.4",
+  "author": {
+    "name": "Dominik Hladík",
+    "email": "dominik.hladik@seznam.cz",
+    "url": "https://github.com/Celtian"
+  },
+  "private": false,
+  "license": "MIT",
+  "description": "Angular directive that adds fixed footer without overlap",
+  "dependencies": {
+    "tslib": "^2.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "homepage": "https://github.com/Celtian/ngx-fixed-footer",
+  "repository": {
+    "url": "git+https://github.com/Celtian/ngx-fixed-footer.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/Celtian/ngx-fixed-footer/issues"
+  },
+  "keywords": [
+    "angular",
+    "fixed",
+    "footer",
+    "ngx",
+    "overlap"
+  ],
+  "engines": {
+    "node": ">=10"
+  }
+}

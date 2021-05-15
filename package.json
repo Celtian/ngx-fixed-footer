@@ -1,0 +1,98 @@
+{
+  "name": "ngx-fixed-footer",
+  "version": "0.0.0",
+  "author": {
+    "name": "Dominik Hladík",
+    "email": "dominik.hladik@seznam.cz",
+    "url": "https://github.com/Celtian"
+  },
+  "private": false,
+  "license": "MIT",
+  "description": "Angular directive that adds fixed footer without overlap",
+  "scripts": {
+    "ng": "ng",
+    "start:demo": "ng serve",
+    "start": "ng build ngx-fixed-footer --watch",
+    "build:demo": "ng build demo --prod",
+    "build": "ng build ngx-fixed-footer --prod",
+    "deploy:ghpages": "yarn build && yarn build:demo && ngh --dir=dist/demo",
+    "publish:npmjs": "yarn syncprojects && yarn build && npm publish --folder dist/ngx-fixed-footer",
+    "gpr:setup": "yarn ts-node --project scripts/tsconfig.ts-node.json scripts/gpr-setup",
+    "test": "ng test",
+    "test:coverage": "ng test --code-coverage",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "create:version": "ts-node --project scripts/tsconfig.ts-node.json scripts/create-version",
+    "postinstall": "yarn create:version && husky install",
+    "syncprojects": "ts-node --project scripts/tsconfig.ts-node.json scripts/sync-projects",
+    "version": "yarn syncprojects && git add projects/ngx-fixed-footer/",
+    "postversion": "git push && git push --follow-tags",
+    "publish:beta": "yarn && yarn build && npm publish --folder dist --tag beta",
+    "release:beta": "npm version prerelease -m \"chore(update): prelease %s β\"",
+    "release:patch": "git checkout master && npm version patch -m \"chore(update): patch release %s 🐛 \"",
+    "release:minor": "git checkout master && npm version minor -m \"chore(update): release %s 🚀\"",
+    "release:major": "git checkout master && npm version major -m \"chore(update): major release %s 💥 \""
+  },
+  "dependencies": {
+    "@angular/animations": "~12.0.0",
+    "@angular/common": "~12.0.0",
+    "@angular/compiler": "~12.0.0",
+    "@angular/core": "~12.0.0",
+    "@angular/forms": "~12.0.0",
+    "@angular/platform-browser": "~12.0.0",
+    "@angular/platform-browser-dynamic": "~12.0.0",
+    "@angular/router": "~12.0.0",
+    "rxjs": "~6.6.7",
+    "tslib": "^2.2.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~12.0.0",
+    "@angular/cli": "~12.0.0",
+    "@angular/compiler-cli": "~12.0.0",
+    "@angular/language-service": "~12.0.0",
+    "@types/jasmine": "^3.7.4",
+    "@types/jasminewd2": "^2.0.9",
+    "@types/node": "^14.14.45",
+    "codelyzer": "^6.0.2",
+    "husky": "^6.0.0",
+    "jasmine-core": "^3.7.1",
+    "jasmine-spec-reporter": "^7.0.0",
+    "karma": "~6.3.2",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-jasmine": "~4.0.1",
+    "karma-jasmine-html-reporter": "^1.6.0",
+    "ng-packagr": "^12.0.0",
+    "prettier": "^2.3.0",
+    "pretty-quick": "^3.1.0",
+    "protractor": "~7.0.0",
+    "ts-node": "^9.1.1",
+    "tslint": "^6.1.3",
+    "typescript": "~4.2.4"
+  },
+  "homepage": "https://github.com/Celtian/ngx-fixed-footer",
+  "repository": {
+    "url": "git+https://github.com/Celtian/ngx-fixed-footer.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/Celtian/ngx-fixed-footer/issues"
+  },
+  "keywords": [
+    "angular",
+    "fixed",
+    "footer",
+    "ngx",
+    "overlap"
+  ],
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
