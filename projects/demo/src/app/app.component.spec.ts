@@ -1,4 +1,4 @@
-/*
+
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { NgxFixedFooterModule } from 'projects/ngx-fixed-footer/src/public-api';
 import { AppComponent } from './app.component';
@@ -31,32 +31,41 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.github-logo').href).toContain('https://github.com/celtian/ngx-fixed-footer');
   }));
 
-  it('should increment', () => {
-    component.increment();
+  it('should toggle if', () => {
+    component.toggleIf();
     fixture.detectChanges();
-    expect(component.count).toBe(4)
+    expect(component.showFooter).toBe(false);
   });
 
-  it('should increment limit', () => {
-    for (const i of new Array(100)) {
-      component.increment();
-    }
+  it('should toggle display', () => {
+    component.toggleDisplay();
     fixture.detectChanges();
-    expect(component.count).toBe(100)
+    expect(component.displayFooter).toBe(false);
   });
 
-  it('should decrement', () => {
-    component.decrement();
+  it('should toggle css attribute', () => {
+    component.toggleFooterCssAttribute();
     fixture.detectChanges();
-    expect(component.count).toBe(2)
+    expect(component.footerCssAttribute).toBe('margin');
   });
 
-  it('should decrement limit', () => {
-    for (const i of new Array(5)) {
-      component.decrement();
-    }
+  it('should toggle css attribute', () => {
+    component.toggleFooterCssAttribute();
+    component.toggleFooterCssAttribute();
     fixture.detectChanges();
-    expect(component.count).toBe(0)
+    expect(component.footerCssAttribute).toBe('padding');
+  });
+
+  it('should toggle css selector', () => {
+    component.toggleCssSelector();
+    fixture.detectChanges();
+    expect(component.containerSelector).toBe('#test');
+  });
+
+  it('should toggle css selector', () => {
+    component.toggleCssSelector();
+    component.toggleCssSelector();
+    fixture.detectChanges();
+    expect(component.containerSelector).toBe('[role="main"]');
   });
 });
-*/
