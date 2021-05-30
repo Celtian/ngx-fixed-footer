@@ -39,9 +39,24 @@ yarn add ngx-fixed-footer
    // ...
    imports: [
      // ...
+     NgxCutModule.forRoot({
+      containerSelector: '[role="main"]',
+      cssAttribute: 'padding'
+     })
+   ]
+  })
+
+  // or
+
+  @NgModule({
+   // ...
+   imports: [
+     // ...
      NgxFixedFooterModule
    ]
   })
+
+
 ```
 
 ## Quick start
@@ -49,24 +64,15 @@ yarn add ngx-fixed-footer
 ### Example code
 
 ```html
-<div
-  *NgxFixedFooter="3; 
-    let index = index;
-    let even = even;
-    let odd = odd;
-    let first = first;
-    let last = last;"
->
-  {{ index }} {{ even }} {{ odd }} {{ first }} {{ last }}
-</div>
+<div role="main">...some content here</div>
+<div ngxFixedFooter [containerSelector]="[role='main']" [cssAttribute]="'padding'">... some content here</div>
 ```
 
 ### Result
 
-```code
-  0 true false true false
-  1 false true false false
-  2 true false false true
+```html
+<div role="main" style="padding-top: {{ /* dynamic height of footer */ }}">...some content here</div>
+<div ngxFixedFooter [containerSelector]="[role='main']" [cssAttribute]="'padding'">... some content here</div>
 ```
 
 ## Dependencies
