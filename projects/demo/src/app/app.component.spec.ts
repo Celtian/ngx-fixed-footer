@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { NgxFixedFooterModule } from 'projects/ngx-fixed-footer/src/public-api';
 import { AppComponent } from './app.component';
