@@ -23,7 +23,7 @@ export class NgxFixedFooterDirective implements DoCheck, OnDestroy, OnChanges {
   private offsetHeight: number = undefined;
 
   constructor(
-    @Inject(DOCUMENT) private document: Document,
+    @Inject(DOCUMENT) private document: any,
     private el: ElementRef,
     private render: Renderer2,
     private options: NgxFixedFooterOptionsService
