@@ -5,7 +5,13 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgxFixedFooterModule],
+  imports: [
+    BrowserModule,
+    NgxFixedFooterModule.forRoot({
+      containerSelector: '[role="main"]',
+      cssAttribute: 'padding'
+    })
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

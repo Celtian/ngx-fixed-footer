@@ -10,40 +10,43 @@ import {
   Renderer2,
   SimpleChanges
 } from '@angular/core';
+import { NgxFixedFooterOptionsService } from './ngx-fixed-footer-options.service';
+import { NgxFixedFooterCssAttribute } from './ngx-fixed-footer.interface';
 
 @Directive({
   selector: '[ngxFixedFooter]'
 })
 export class NgxFixedFooterDirective implements DoCheck, OnDestroy, OnChanges {
-  @Input() public containerSelector: string = '[role="main"]';
-  @Input() public cssAttribute: 'padding' | 'margin' = 'padding';
+  @Input() public containerSelector: string = this.options.containerSelector;
+  @Input() public cssAttribute: NgxFixedFooterCssAttribute = this.options.cssAttribute;
 
   private offsetHeight: number = undefined;
 
-  constructor(private el: ElementRef, private render: Renderer2, @Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private el: ElementRef,
+    private render: Renderer2,
+    private options: NgxFixedFooterOptionsService
+  ) {}
 
   public ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     // swap selector
     if (changes?.containerSelector && !changes?.containerSelector?.firstChange) {
-      if (changes?.containerSelector?.currentValue !== changes?.containerSelector?.previousValue) {
-        const prev = changes?.containerSelector?.previousValue;
-        const next = changes?.containerSelector?.currentValue;
+      const prev = changes?.containerSelector?.previousValue;
+      const next = changes?.containerSelector?.currentValue;
+      if (next !== prev) {
         this.removeStyle(this.document.body.querySelector(prev), this.cssAttribute);
         this.setStyle(this.document.body.querySelector(next), this.cssAttribute, this.offsetHeight);
       }
     }
 
-    // swap margin and padding
+    // swap css attribute
     if (changes?.cssAttribute && !changes?.cssAttribute?.firstChange) {
-      if (changes?.cssAttribute?.currentValue === 'margin') {
-        const container = this.container;
-        this.removeStyle(container, 'padding');
-        this.setStyle(container, 'margin', this.offsetHeight);
-      } else if (changes?.cssAttribute?.currentValue === 'padding') {
-        const container = this.container;
-        this.removeStyle(container, 'margin');
-        this.setStyle(container, 'padding', this.offsetHeight);
+      const prev = changes?.containerSelector?.previousValue;
+      const next = changes?.cssAttribute?.currentValue;
+      if (next !== prev) {
+        this.removeStyle(this.container, prev);
+        this.setStyle(this.container, next, this.offsetHeight);
       }
     }
   }
@@ -62,11 +65,11 @@ export class NgxFixedFooterDirective implements DoCheck, OnDestroy, OnChanges {
     }, 0);
   }
 
-  private removeStyle(container: HTMLElement, cssAttribute: 'padding' | 'margin'): void {
+  private removeStyle(container: HTMLElement, cssAttribute: NgxFixedFooterCssAttribute): void {
     this.render.setStyle(container, `${cssAttribute}-bottom`, '');
   }
 
-  private setStyle(container: HTMLElement, cssAttribute: 'padding' | 'margin', height: number): void {
+  private setStyle(container: HTMLElement, cssAttribute: NgxFixedFooterCssAttribute, height: number): void {
     this.render.setStyle(container, `${cssAttribute}-bottom`, height === 0 ? '' : `${height}px`);
   }
 
