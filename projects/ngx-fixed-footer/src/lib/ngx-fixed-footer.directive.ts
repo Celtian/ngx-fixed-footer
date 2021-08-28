@@ -56,13 +56,11 @@ export class NgxFixedFooterDirective implements DoCheck, OnDestroy, OnChanges {
   }
 
   public ngDoCheck(): void {
-    setTimeout(() => {
-      const height = this.html.offsetHeight;
-      if (this.offsetHeight != height) {
-        this.setStyle(this.container, this.cssAttribute, height);
-        this.offsetHeight = height;
-      }
-    }, 0);
+    const height = this.html.offsetHeight;
+    if (this.offsetHeight !== height) {
+      this.setStyle(this.container, this.cssAttribute, height);
+      this.offsetHeight = height;
+    }
   }
 
   private removeStyle(container: HTMLElement, cssAttribute: NgxFixedFooterCssAttribute): void {
