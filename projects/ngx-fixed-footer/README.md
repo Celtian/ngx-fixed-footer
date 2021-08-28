@@ -75,6 +75,26 @@ yarn add ngx-fixed-footer
 <div ngxFixedFooter [containerSelector]="[role='main']" [cssAttribute]="'padding'">... some content here</div>
 ```
 
+## Options
+
+### Root options
+
+_Module can be configured globally._
+
+| Option                | Type                  | Default         | Description                                     |
+| --------------------- | --------------------- | --------------- | ----------------------------------------------- |
+| **containerSelector** | string                | '[role="main"]' | Css selector used for additional padding/margin |
+| **cssAttribute**      | 'margin' or 'padding' | 'padding'       | Css attribute used on 'containerSelector'       |
+
+### Directive
+
+_Each directive can override global options._
+
+| Option                  | Type                  | Default                       | Description                                     |
+| ----------------------- | --------------------- | ----------------------------- | ----------------------------------------------- |
+| **[containerSelector]** | string                | value taken from root options | Css selector used for additional padding/margin |
+| **[cssAttribute]**      | 'margin' or 'padding' | value taken from root options | Css attribute used on 'containerSelector'       |
+
 ## Dependencies
 
 _None_
