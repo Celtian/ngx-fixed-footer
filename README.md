@@ -71,7 +71,7 @@ yarn add ngx-fixed-footer
 ### Result
 
 ```html
-<div role="main" style="padding-top: {{ /* dynamic height of footer */ }}">...some content here</div>
+<div role="main" style="padding-bottom: {{ /* dynamic height of footer */ }}">...some content here</div>
 <div ngxFixedFooter [containerSelector]="[role='main']" [cssAttribute]="'padding'">... some content here</div>
 ```
 
