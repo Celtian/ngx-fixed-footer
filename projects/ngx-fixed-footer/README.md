@@ -16,9 +16,7 @@
 
 > ✓ _Angular 12, Ivy and SSR compatible_
 
-> Uses ResizeObserver https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver (check browser compatibility)
-
-Here's the [demo](http://celtian.github.io/ngx-fixed-footer/) or [stackblitz live preview](https://stackblitz.com/edit/ngx-fixed-footer)
+Here's the [demo](http://celtian.github.io/ngx-fixed-footer/) or [stackblitz live preview](https://stackblitz.com/edit/ngx-fixed-footer) or [codesandbox live preview](https://codesandbox.io/s/ngx-fixed-footer-m4f21)
 
 - Lightweight
 - No dependencies!
@@ -73,7 +71,7 @@ yarn add ngx-fixed-footer
 ### Result
 
 ```html
-<div role="main" style="padding-top: {{ /* dynamic height of footer */ }}">...some content here</div>
+<div role="main" style="padding-bottom: {{ /* dynamic height of footer */ }}">...some content here</div>
 <div ngxFixedFooter [containerSelector]="[role='main']" [cssAttribute]="'padding'">... some content here</div>
 ```
 
