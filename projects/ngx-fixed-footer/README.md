@@ -16,6 +16,8 @@
 
 > ✓ _Angular 12, Ivy and SSR compatible_
 
+> Uses ResizeObserver https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver (check browser compatibility)
+
 Here's the [demo](http://celtian.github.io/ngx-fixed-footer/) or [stackblitz live preview](https://stackblitz.com/edit/ngx-fixed-footer)
 
 - Lightweight
