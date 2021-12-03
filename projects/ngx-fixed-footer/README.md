@@ -61,10 +61,10 @@ yarn add ngx-fixed-footer
 
 ## Compatibility
 
-| Angular   | ngx-if-platform | Install                       |
-| --------- | --------------- | ----------------------------- |
-| >= 12     | 1.x             | `yarn add ngx-fixed-footer`   |
-| >= 5 < 13 | 0.x             | `yarn add ngx-fixed-footer@0` |
+| Angular   | ngx-fixed-footer | Install                       |
+| --------- | ---------------- | ----------------------------- |
+| >= 12     | 1.x              | `yarn add ngx-fixed-footer`   |
+| >= 5 < 13 | 0.x              | `yarn add ngx-fixed-footer@0` |
 
 ## Quick start
 
