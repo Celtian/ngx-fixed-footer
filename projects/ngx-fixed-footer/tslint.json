@@ -1,7 +1,0 @@
-{
-  "extends": "../../tslint.json",
-  "rules": {
-    "directive-selector": [true, "attribute", "ngxFixedFooter", "camelCase"],
-    "component-selector": [true, "element", "ngx-fixed-footer", "kebab-case"]
-  }
-}
