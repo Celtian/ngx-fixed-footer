@@ -14,7 +14,7 @@
 
 > Angular directive that adds fixed footer without overlap
 
-> ✓ _Angular 13, Ivy and SSR compatible_
+> ✓ _Angular 15, Ivy and SSR compatible_
 
 Here's the [demo](http://celtian.github.io/ngx-fixed-footer/) or [stackblitz live preview](https://stackblitz.com/edit/ngx-fixed-footer) or [codesandbox live preview](https://codesandbox.io/s/ngx-fixed-footer-m4f21)
 
@@ -39,7 +39,7 @@ yarn add ngx-fixed-footer
    // ...
    imports: [
      // ...
-     NgxCutModule.forRoot({
+     NgxFixedFooterModule.forRoot({
       containerSelector: '[role="main"]',
       cssAttribute: 'padding'
      })

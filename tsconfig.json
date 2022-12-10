@@ -10,14 +10,15 @@
     "module": "es2020",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES2022",
     "lib": ["es2018", "dom"],
     "paths": {
       "ngx-fixed-footer": ["dist/ngx-fixed-footer"],
       "ngx-fixed-footer/*": ["dist/ngx-fixed-footer/*"]
     },
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
