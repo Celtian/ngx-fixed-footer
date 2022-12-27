@@ -33,7 +33,7 @@ jobs:
             ${{ runner.OS }}-yarn-
             ${{ runner.OS }}-
 
-      - name: Install dependencies # Install all deps
+      - name: Install dependencies
         run: yarn
 
       - name: Sync versions # Sync versions
@@ -42,7 +42,7 @@ jobs:
       - name: Build demo app # Build Schematics and move
         run: yarn build:demo --base-href https://celtian.github.io/ngx-fixed-footer/
 
-      - name: Build ngx-fixed-footer # Build
+      - name: Build ngx-fixed-footer
         run: yarn build
 
       - name: Run tests
