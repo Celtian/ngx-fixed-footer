@@ -6,7 +6,7 @@
 [![npm version](https://badge.fury.io/js/ngx-fixed-footer.svg)](https://badge.fury.io/js/ngx-fixed-footer)
 [![Package License](https://img.shields.io/npm/l/ngx-fixed-footer.svg)](https://www.npmjs.com/ngx-fixed-footer)
 [![NPM Downloads](https://img.shields.io/npm/dm/ngx-fixed-footer.svg)](https://www.npmjs.com/ngx-fixed-footer)
-[![Build & Publish](https://github.com/celtian/ngx-fixed-footer/workflows/Build%20&%20Publish/badge.svg)](https://github.com/celtian/ngx-fixed-footer/actions)
+[![Snyk](https://snyk.io/advisor/npm-package/ngx-fixed-footer/badge.svg)](https://snyk.io/advisor/npm-package/ngx-fixed-footer)
 [![codecov](https://codecov.io/gh/Celtian/ngx-fixed-footer/branch/master/graph/badge.svg?token=1IRUKIKM0D)](https://codecov.io/gh/celtian/ngx-fixed-footer/)
 [![stars](https://badgen.net/github/stars/celtian/ngx-fixed-footer)](https://github.com/celtian/ngx-fixed-footer/)
 [![forks](https://badgen.net/github/forks/celtian/ngx-fixed-footer)](https://github.com/celtian/ngx-fixed-footer/)
@@ -14,7 +14,7 @@
 
 > Angular directive that adds fixed footer without overlap
 
-> ✓ _Angular 15, Ivy and SSR compatible_
+> ✓ _Angular 16, Ivy and SSR compatible_
 
 Here's the [demo](http://celtian.github.io/ngx-fixed-footer/) or [stackblitz live preview](https://stackblitz.com/edit/ngx-fixed-footer) or [codesandbox live preview](https://codesandbox.io/s/ngx-fixed-footer-m4f21)
 
@@ -55,7 +55,6 @@ yarn add ngx-fixed-footer
      NgxFixedFooterModule
    ]
   })
-
 
 ```
 
