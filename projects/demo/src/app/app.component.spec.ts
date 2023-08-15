@@ -8,11 +8,8 @@ describe('AppComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
       imports: [
-        NgxFixedFooterModule
+        AppComponent, NgxFixedFooterModule
       ]
     }).compileComponents();
 
