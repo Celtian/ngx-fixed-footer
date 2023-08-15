@@ -5,13 +5,12 @@ import { NgxFixedFooterDirective } from './ngx-fixed-footer.directive';
 import { NgxFixedFooterOptions } from './ngx-fixed-footer.interface';
 
 export let FOR_ROOT_OPTIONS_TOKEN = new InjectionToken<NgxFixedFooterOptions>(
-  'forRoot() NgxCutOptionsService configuration.'
+  'forRoot() NgxFixedFooterOptionsService configuration.'
 );
 
 @NgModule({
   declarations: [NgxFixedFooterDirective],
-  exports: [NgxFixedFooterDirective],
-  providers: [NgxFixedFooterOptionsService]
+  exports: [NgxFixedFooterDirective]
 })
 export class NgxFixedFooterModule {
   public static forRoot(options?: NgxFixedFooterOptions): ModuleWithProviders<NgxFixedFooterModule> {
