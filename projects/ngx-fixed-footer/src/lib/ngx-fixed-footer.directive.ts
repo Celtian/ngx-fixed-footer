@@ -51,7 +51,7 @@ export class NgxFixedFooterDirective implements OnDestroy, OnChanges, OnInit {
 
       // swap css attribute
       if (changes?.cssAttribute && !changes?.cssAttribute?.firstChange) {
-        const prev = changes?.containerSelector?.previousValue;
+        const prev = changes?.cssAttribute?.previousValue;
         const next = changes?.cssAttribute?.currentValue;
         if (next !== prev) {
           this.removeStyle(this.container, prev);
@@ -79,15 +79,26 @@ export class NgxFixedFooterDirective implements OnDestroy, OnChanges, OnInit {
   }
 
   private removeStyle(container: HTMLElement, cssAttribute: NgxFixedFooterCssAttribute): void {
+    if (!container) {
+      throw new Error(`Cannot removeStyle to undefined container`);
+    }
     this.render.setStyle(container, `${cssAttribute}-bottom`, '');
   }
 
   private setStyle(container: HTMLElement, cssAttribute: NgxFixedFooterCssAttribute, height: number): void {
+    if (!container) {
+      throw new Error(`Cannot setStyle to undefined container`);
+    }
     this.render.setStyle(container, `${cssAttribute}-bottom`, height === 0 ? '' : `${height}px`);
   }
 
   private get container(): HTMLElement {
-    return this.document.body.querySelector(this.containerSelector);
+    const selector = this.containerSelector || this.options.containerSelector;
+    const container = this.document.body.querySelector(selector);
+    if (!container) {
+      console.warn(`Container '${selector}' was not found`);
+    }
+    return container;
   }
 
   private get html(): HTMLElement {

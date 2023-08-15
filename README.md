@@ -32,31 +32,63 @@ yarn add ngx-fixed-footer
 
 2. Add NgxFixedFooterModule into your module `imports`
 
-```typescript
-  import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+   2.1. module
 
-  @NgModule({
-   // ...
-   imports: [
-     // ...
-     NgxFixedFooterModule.forRoot({
-      containerSelector: '[role="main"]',
-      cssAttribute: 'padding'
+   ```typescript
+     import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+
+     @NgModule({
+      // ...
+      imports: [
+        // ...
+        NgxFixedFooterModule.forRoot({
+         containerSelector: '[role="main"]',
+         cssAttribute: 'padding'
+        })
+      ]
      })
-   ]
-  })
 
-  // or
+     // or
 
-  @NgModule({
-   // ...
-   imports: [
-     // ...
-     NgxFixedFooterModule
-   ]
-  })
+     @NgModule({
+      // ...
+      imports: [
+        // ...
+        NgxFixedFooterModule
+      ]
+     })
 
-```
+   ```
+
+   2.2 standalone
+
+   ```typescript
+     import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+     import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+
+     export const appConfig: ApplicationConfig = {
+       providers: [
+         importProvidersFrom(
+           NgxFixedFooterModule.forRoot({
+             containerSelector: '[role="main"]',
+             cssAttribute: 'margin'
+           })
+         )
+       ]
+     };
+
+     // and
+
+     import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+
+     @Component({
+        standalone: true,
+        imports: [
+          // ...
+          NgxFixedFooterModule
+        ]
+     })
+   ```
 
 ## Compatibility
 

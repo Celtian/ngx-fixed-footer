@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { NgxFixedFooterModule } from 'projects/ngx-fixed-footer/src/lib/ngx-fixed-footer.module';
 import { VERSION } from '../environments/version';
 
 @Component({
+  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, NgxFixedFooterModule]
 })
 export class AppComponent {
   public title = 'ngx-fixed-footer';
@@ -18,12 +23,16 @@ export class AppComponent {
   public footerCssAttribute: 'padding' | 'margin' = 'padding';
   public containerSelector = '[role="main"]';
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   public toggleIf(): void {
     this.showFooter = !this.showFooter;
+    this.cdr.markForCheck();
   }
 
   public toggleDisplay(): void {
     this.displayFooter = !this.displayFooter;
+    this.cdr.markForCheck();
   }
 
   public toggleFooterCssAttribute(): void {
@@ -32,6 +41,7 @@ export class AppComponent {
     } else {
       this.footerCssAttribute = 'padding';
     }
+    this.cdr.markForCheck();
   }
 
   public toggleCssSelector(): void {
@@ -40,5 +50,6 @@ export class AppComponent {
     } else {
       this.containerSelector = '[role="main"]';
     }
+    this.cdr.markForCheck();
   }
 }

@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { DEFAULT_CONTAINER_SELECTOR, DEFAULT_CSS_ATTRIBUTE } from './ngx-fixed-footer.constants';
 import { NgxFixedFooterCssAttribute } from './ngx-fixed-footer.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class NgxFixedFooterOptionsService {
   /**
    * @returns Css attribute of HTML element which gets style. It means margin or padding
