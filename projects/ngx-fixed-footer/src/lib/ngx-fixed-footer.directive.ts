@@ -8,26 +8,30 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
-  SimpleChanges
+  SimpleChanges,
+  inject
 } from '@angular/core';
-import { NgxFixedFooterOptionsService } from './ngx-fixed-footer-options.service';
-import { NgxFixedFooterCssAttribute } from './ngx-fixed-footer.interface';
+import { DEFAULT_FIXED_FOOTER_OPTIONS } from './ngx-fixed-footer.constants';
+import { NgxFixedFooterCssAttribute, NgxFixedFooterOptions } from './ngx-fixed-footer.interface';
+import { APP_FIXED_FOOTER_OPTIONS_TOKEN } from './ngx-fixed-footer.provider';
 
 @Directive({
-  selector: '[ngxFixedFooter]'
+  selector: '[ngxFixedFooter]',
+  standalone: true
 })
 export class NgxFixedFooterDirective implements OnDestroy, OnChanges, OnInit {
-  @Input() public containerSelector: string = this.options.containerSelector;
-  @Input() public cssAttribute: NgxFixedFooterCssAttribute = this.options.cssAttribute;
-
+  private options: NgxFixedFooterOptions =
+    inject(APP_FIXED_FOOTER_OPTIONS_TOKEN, { optional: true }) || DEFAULT_FIXED_FOOTER_OPTIONS;
   private offsetHeight: number = undefined;
   private resizeObserver: ResizeObserver;
+
+  @Input() public containerSelector: string = this.options.containerSelector;
+  @Input() public cssAttribute: NgxFixedFooterCssAttribute = this.options.cssAttribute;
 
   constructor(
     @Inject(DOCUMENT) private document: any,
     private el: ElementRef,
-    private render: Renderer2,
-    private options: NgxFixedFooterOptionsService
+    private render: Renderer2
   ) {}
 
   public ngOnInit(): void {

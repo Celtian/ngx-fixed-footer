@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { NgxFixedFooterModule } from 'projects/ngx-fixed-footer/src/lib/ngx-fixed-footer.module';
+import { NgxFixedFooterDirective } from 'projects/ngx-fixed-footer/src/public-api';
 import { VERSION } from '../environments/version';
 
 @Component({
@@ -8,7 +8,7 @@ import { VERSION } from '../environments/version';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgxFixedFooterModule]
+  imports: [NgxFixedFooterDirective]
 })
 export class AppComponent {
   public title = 'ngx-fixed-footer';

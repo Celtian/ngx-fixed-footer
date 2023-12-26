@@ -32,60 +32,60 @@ yarn add ngx-fixed-footer
 
 2. Add NgxFixedFooterModule into your module `imports`
 
-   2.1. module
+   2.1. import providers (optional)
 
    ```typescript
-     import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+     import { provideFixedFooter } from 'ngx-fixed-footer';
 
-     @NgModule({
-      // ...
-      imports: [
-        // ...
-        NgxFixedFooterModule.forRoot({
-         containerSelector: '[role="main"]',
-         cssAttribute: 'padding'
-        })
-      ]
-     })
+     export const appConfig: ApplicationConfig = {
+       providers: [
+         // ...
+         provideFixedFooter({
+           containerSelector: '[data-something]',
+           cssAttribute: 'margin'
+         })
+       ]
+     };
 
      // or
 
+     import { provideFixedFooter } from 'ngx-fixed-footer';
+
      @NgModule({
       // ...
       imports: [
         // ...
-        NgxFixedFooterModule
+        provideFixedFooter({
+          containerSelector: '[data-something]',
+          cssAttribute: 'margin'
+        })
       ]
      })
 
    ```
 
-   2.2 standalone
+   2.2 import directive
 
    ```typescript
-     import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-     import { NgxFixedFooterModule } from 'ngx-fixed-footer';
-
-     export const appConfig: ApplicationConfig = {
-       providers: [
-         importProvidersFrom(
-           NgxFixedFooterModule.forRoot({
-             containerSelector: '[role="main"]',
-             cssAttribute: 'margin'
-           })
-         )
-       ]
-     };
-
-     // and
-
-     import { NgxFixedFooterModule } from 'ngx-fixed-footer';
+     import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 
      @Component({
         standalone: true,
         imports: [
           // ...
-          NgxFixedFooterModule
+          NgxFixedFooterDirective
+        ]
+     })
+
+     // or
+
+     import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
+
+     @NgModule({
+        // ...
+        imports: [
+          // ...
+          NgxFixedFooterDirective
         ]
      })
    ```
@@ -94,7 +94,8 @@ yarn add ngx-fixed-footer
 
 | Angular   | ngx-fixed-footer | Install                       |
 | --------- | ---------------- | ----------------------------- |
-| >= 12     | 1.x              | `yarn add ngx-fixed-footer`   |
+| >= 14     | 2.x              | `yarn add ngx-fixed-footer`   |
+| >= 12     | 1.x              | `yarn add ngx-fixed-footer@1` |
 | >= 5 < 13 | 0.x              | `yarn add ngx-fixed-footer@0` |
 
 ## Quick start

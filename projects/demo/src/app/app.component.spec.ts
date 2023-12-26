@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { NgxFixedFooterModule } from 'projects/ngx-fixed-footer/src/public-api';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -8,9 +7,7 @@ describe('AppComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        AppComponent, NgxFixedFooterModule
-      ]
+      imports: [AppComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
