@@ -7,11 +7,11 @@
     "declaration": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "module": "es2020",
+    "module": "ES2022",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
-    "lib": ["es2018", "dom"],
+    "lib": ["ES2022", "dom"],
     "paths": {
       "ngx-fixed-footer": ["dist/ngx-fixed-footer"],
       "ngx-fixed-footer/*": ["dist/ngx-fixed-footer/*"]
