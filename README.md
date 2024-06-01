@@ -130,7 +130,8 @@ _Each directive can override global options._
 
 | Angular   | ngx-fixed-footer | Install                       |
 | --------- | ---------------- | ----------------------------- |
-| >= 14     | 2.x              | `yarn add ngx-fixed-footer`   |
+| >= 18     | 3.x              | `yarn add ngx-fixed-footer`   |
+| >= 14     | 2.x              | `yarn add ngx-fixed-footer@2` |
 | >= 12     | 1.x              | `yarn add ngx-fixed-footer@1` |
 | >= 5 < 13 | 0.x              | `yarn add ngx-fixed-footer@0` |
 

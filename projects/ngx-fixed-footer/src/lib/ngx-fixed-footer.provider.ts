@@ -4,7 +4,7 @@ import { NgxFixedFooterOptions } from './ngx-fixed-footer.interface';
 
 export const APP_FIXED_FOOTER_OPTIONS_TOKEN = new InjectionToken<NgxFixedFooterOptions>('[ngxFixedFooter] Options');
 
-export const provideFixedFooter = (options: NgxFixedFooterOptions): Provider => {
+export const provideFixedFooter = (options: Partial<NgxFixedFooterOptions>): Provider => {
   return {
     provide: APP_FIXED_FOOTER_OPTIONS_TOKEN,
     useValue: {
