@@ -11,8 +11,7 @@
   "description": "Angular directive that adds fixed footer without overlap",
   "scripts": {
     "ng": "ng",
-    "start:demo": "ng serve",
-    "start": "ng build ngx-fixed-footer --watch",
+    "start": "ng serve",
     "build:demo": "ng build demo --configuration production",
     "build": "ng build ngx-fixed-footer --configuration production",
     "test": "ng test",
