@@ -3,8 +3,8 @@ import { NgxFixedFooterDirective } from 'projects/ngx-fixed-footer/src/public-ap
 import { VERSION } from '../environments/version';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

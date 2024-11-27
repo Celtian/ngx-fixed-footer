@@ -10,7 +10,8 @@ describe('NgxFixedFooterDirective', () => {
 
   @Component({
     template: ` <main>todo</main>
-      <div ngxFixedFooter></div>`
+      <div ngxFixedFooter></div>`,
+    standalone: true
   })
   class TestComponent {}
 
@@ -19,6 +20,7 @@ describe('NgxFixedFooterDirective', () => {
     cssAttribute: 'padding'
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (global as any).ResizeObserver = jest.fn().mockImplementation((callback) => ({
     observe: jest.fn(),
     unobserve: jest.fn(),
@@ -28,8 +30,7 @@ describe('NgxFixedFooterDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent],
-      imports: [NgxFixedFooterDirective],
+      imports: [TestComponent, NgxFixedFooterDirective],
       providers: [
         provideFixedFooter(mockOptions),
         { provide: ElementRef, useValue: {} },

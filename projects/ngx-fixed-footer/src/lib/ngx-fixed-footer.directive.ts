@@ -41,22 +41,19 @@ export class NgxFixedFooterDirective implements OnDestroy, OnInit {
 
   constructor() {
     // swap selector
-    effect(
-      () => {
-        if (!this.hasResizeObserver || !this.document) return;
-        const cssAttribute = this.cssAttribute();
-        const containerSelector = this.containerSelector();
-        if (containerSelector) {
-          const prevContainerSelector = this.prevContainerSelector();
-          if (prevContainerSelector && prevContainerSelector !== containerSelector) {
-            this.removeStyle(this.document.body.querySelector(prevContainerSelector), cssAttribute);
-          }
-          this.setStyle(this.document.body.querySelector(containerSelector), cssAttribute, this.offsetHeight());
-          this.prevContainerSelector.set(containerSelector);
+    effect(() => {
+      if (!this.hasResizeObserver || !this.document) return;
+      const cssAttribute = this.cssAttribute();
+      const containerSelector = this.containerSelector();
+      if (containerSelector) {
+        const prevContainerSelector = this.prevContainerSelector();
+        if (prevContainerSelector && prevContainerSelector !== containerSelector) {
+          this.removeStyle(this.document.body.querySelector(prevContainerSelector), cssAttribute);
         }
-      },
-      { allowSignalWrites: true }
-    );
+        this.setStyle(this.document.body.querySelector(containerSelector), cssAttribute, this.offsetHeight());
+        this.prevContainerSelector.set(containerSelector);
+      }
+    });
 
     // swap css attribute
     effect(() => {
