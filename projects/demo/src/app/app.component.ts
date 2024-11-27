@@ -3,7 +3,6 @@ import { NgxFixedFooterDirective } from 'projects/ngx-fixed-footer/src/public-ap
 import { VERSION } from '../environments/version';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
