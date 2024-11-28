@@ -14,6 +14,7 @@
     "start": "ng serve",
     "build:demo": "ng build demo --configuration production",
     "build": "ng build ngx-fixed-footer --configuration production",
+    "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:jest": "jest",
     "lint": "ng lint",

@@ -11,7 +11,8 @@ describe('NgxFixedFooterDirective', () => {
   @Component({
     template: ` <main>todo</main>
       <div ngxFixedFooter></div>`,
-    standalone: true
+    standalone: true,
+    imports: [NgxFixedFooterDirective]
   })
   class TestComponent {}
 
@@ -30,7 +31,7 @@ describe('NgxFixedFooterDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TestComponent, NgxFixedFooterDirective],
+      imports: [TestComponent],
       providers: [
         provideFixedFooter(mockOptions),
         { provide: ElementRef, useValue: {} },
