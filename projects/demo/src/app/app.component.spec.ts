@@ -27,38 +27,38 @@ describe('AppComponent', () => {
   it('should toggle if', () => {
     component.toggleIf();
     fixture.detectChanges();
-    expect(component.showFooter).toBe(false);
+    expect(component.showFooter()).toBe(false);
   });
 
   it('should toggle display', () => {
     component.toggleDisplay();
     fixture.detectChanges();
-    expect(component.displayFooter).toBe(false);
+    expect(component.displayFooter()).toBe(false);
   });
 
   it('should toggle css attribute', () => {
     component.toggleFooterCssAttribute();
     fixture.detectChanges();
-    expect(component.footerCssAttribute).toBe('margin');
+    expect(component.footerCssAttribute()).toBe('margin');
   });
 
   it('should toggle css attribute', () => {
     component.toggleFooterCssAttribute();
     component.toggleFooterCssAttribute();
     fixture.detectChanges();
-    expect(component.footerCssAttribute).toBe('padding');
+    expect(component.footerCssAttribute()).toBe('padding');
   });
 
   it('should toggle css selector', () => {
     component.toggleCssSelector();
     fixture.detectChanges();
-    expect(component.containerSelector).toBe('#test');
+    expect(component.containerSelector()).toBe('#test');
   });
 
   it('should toggle css selector', () => {
     component.toggleCssSelector();
     component.toggleCssSelector();
     fixture.detectChanges();
-    expect(component.containerSelector).toBe('[role="main"]');
+    expect(component.containerSelector()).toBe('[role="main"]');
   });
 });

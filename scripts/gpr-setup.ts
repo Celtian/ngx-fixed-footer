@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { writeFileSync } from 'fs-extra';
 import { join } from 'path';
 import distPackage from '../dist/ngx-fixed-footer/package.json';

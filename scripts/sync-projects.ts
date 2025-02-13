@@ -6,6 +6,7 @@ import { resolve } from 'path';
 import { publishConfig, version } from '../package.json';
 
 const packagePath = resolve(__dirname, '..', 'projects', 'ngx-fixed-footer', 'package.json');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const pkg = require(packagePath);
 
 pkg.version = version;
@@ -18,5 +19,5 @@ console.log('\x1b[34m', `Version info synced ${pkg.version}`);
 // Copy README into dist folder
 const copyFiles = ['README.md'];
 for (const file of copyFiles) {
-  copyFileSync(`./${file}`, `./projects/ngx-fixed-footer//${file}`);
+  copyFileSync(`./${file}`, `./projects/ngx-fixed-footer/${file}`);
 }
