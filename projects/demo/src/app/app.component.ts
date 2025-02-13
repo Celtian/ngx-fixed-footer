@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { NgxFixedFooterDirective } from 'projects/ngx-fixed-footer/src/public-api';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { NgxFixedFooterDirective } from '../../../ngx-fixed-footer/src/public-api';
 import { VERSION } from '../environments/version';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgxFixedFooterDirective]
 })
@@ -17,38 +17,28 @@ export class AppComponent {
   public loremIpsum =
     'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam posuere lacus quis dolor. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce tellus. Duis viverra diam non justo. In enim a arcu imperdiet malesuada. Cras elementum. Fusce wisi. Mauris metus. Fusce aliquam vestibulum ipsum. Aliquam erat volutpat.';
 
-  public showFooter = true;
-  public displayFooter = true;
-  public footerCssAttribute: 'padding' | 'margin' = 'padding';
-  public containerSelector = '[role="main"]';
-
-  constructor(private cdr: ChangeDetectorRef) {}
+  public showFooter = signal(true);
+  public displayFooter = signal(true);
+  public footerCssAttribute = signal<'padding' | 'margin'>('padding');
+  public containerSelector = signal('[role="main"]');
 
   public toggleIf(): void {
-    this.showFooter = !this.showFooter;
-    this.cdr.markForCheck();
+    this.showFooter.update((value) => !value);
   }
 
   public toggleDisplay(): void {
-    this.displayFooter = !this.displayFooter;
-    this.cdr.markForCheck();
+    this.displayFooter.update((value) => !value);
   }
 
   public toggleFooterCssAttribute(): void {
-    if (this.footerCssAttribute === 'padding') {
-      this.footerCssAttribute = 'margin';
-    } else {
-      this.footerCssAttribute = 'padding';
-    }
-    this.cdr.markForCheck();
+    this.footerCssAttribute.update((value) => {
+      return value === 'padding' ? 'margin' : 'padding';
+    });
   }
 
   public toggleCssSelector(): void {
-    if (this.containerSelector === '[role="main"]') {
-      this.containerSelector = '#test';
-    } else {
-      this.containerSelector = '[role="main"]';
-    }
-    this.cdr.markForCheck();
+    this.containerSelector.update((value) => {
+      return value === '[role="main"]' ? '#test' : '[role="main"]';
+    });
   }
 }

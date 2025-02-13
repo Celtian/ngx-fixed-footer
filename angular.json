@@ -48,11 +48,6 @@
     },
     "demo": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "projects/demo",
       "sourceRoot": "projects/demo/src",
       "prefix": "app",
@@ -71,7 +66,7 @@
               "projects/demo/src/assets"
             ],
             "styles": [
-              "projects/demo/src/styles.scss"
+              "projects/demo/src/styles.css"
             ],
             "scripts": [],
             "extractLicenses": false,
@@ -95,13 +90,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "2.5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "5kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ]
             }

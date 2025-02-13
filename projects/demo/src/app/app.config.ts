@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
-import { provideFixedFooter } from 'projects/ngx-fixed-footer/src/public-api';
+import { provideFixedFooter } from 'ngx-fixed-footer';
 
 export const appConfig: ApplicationConfig = {
   providers: [

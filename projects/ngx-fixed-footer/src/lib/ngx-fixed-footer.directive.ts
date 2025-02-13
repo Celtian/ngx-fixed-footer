@@ -26,15 +26,15 @@ export class NgxFixedFooterDirective implements OnDestroy, OnInit {
   private options: NgxFixedFooterOptions =
     inject(APP_FIXED_FOOTER_OPTIONS_TOKEN, { optional: true }) || DEFAULT_FIXED_FOOTER_OPTIONS;
   private readonly hasResizeObserver = typeof ResizeObserver !== 'undefined';
+  private resizeObserver?: ResizeObserver;
 
   private offsetHeight = signal<number | undefined>(undefined);
-  private resizeObserver = signal<ResizeObserver | undefined>(undefined);
   private prevContainerSelector = signal<string | undefined>(undefined);
 
   public containerSelector = input<string>(this.options.containerSelector);
   public cssAttribute = input<NgxFixedFooterCssAttribute>(this.options.cssAttribute);
 
-  private container = computed<HTMLElement>(() => {
+  private container = computed(() => {
     const selector = this.containerSelector() || this.options.containerSelector;
     return this.document.body.querySelector<HTMLElement>(selector);
   });
@@ -43,14 +43,20 @@ export class NgxFixedFooterDirective implements OnDestroy, OnInit {
     // swap selector
     effect(() => {
       if (!this.hasResizeObserver || !this.document) return;
-      const cssAttribute = this.cssAttribute();
       const containerSelector = this.containerSelector();
-      if (containerSelector) {
-        const prevContainerSelector = this.prevContainerSelector();
-        if (prevContainerSelector && prevContainerSelector !== containerSelector) {
-          this.removeStyle(this.document.body.querySelector(prevContainerSelector), cssAttribute);
+      const offsetHeight = this.offsetHeight();
+      if (!containerSelector || typeof offsetHeight !== 'number') return;
+      const cssAttribute = this.cssAttribute();
+      const prevContainerSelector = this.prevContainerSelector();
+      if (prevContainerSelector && prevContainerSelector !== containerSelector) {
+        const prevContainer = this.document.body.querySelector<HTMLElement>(prevContainerSelector);
+        if (prevContainer) {
+          this.removeStyle(prevContainer, cssAttribute);
         }
-        this.setStyle(this.document.body.querySelector(containerSelector), cssAttribute, this.offsetHeight());
+      }
+      const container = this.document.body.querySelector<HTMLElement>(containerSelector);
+      if (container) {
+        this.setStyle(container, cssAttribute, offsetHeight);
         this.prevContainerSelector.set(containerSelector);
       }
     });
@@ -58,33 +64,35 @@ export class NgxFixedFooterDirective implements OnDestroy, OnInit {
     // swap css attribute
     effect(() => {
       if (!this.hasResizeObserver || !this.document) return;
+      const container = this.container();
+      const offsetHeight = this.offsetHeight();
+      if (!container || typeof offsetHeight !== 'number') return;
       const cssAttribute = this.cssAttribute();
-      if (cssAttribute) {
-        const container = this.container();
-        this.removeStyle(container, cssAttribute === 'padding' ? 'margin' : 'padding');
-        this.setStyle(container, cssAttribute, this.offsetHeight());
-      }
+      this.removeStyle(container, cssAttribute === 'padding' ? 'margin' : 'padding');
+      this.setStyle(container, cssAttribute, offsetHeight);
     });
   }
 
   public ngOnInit(): void {
     if (this.hasResizeObserver && this.document) {
-      const resizeObserver = new ResizeObserver(() => this.checkHeight());
-      resizeObserver.observe(this.html);
+      this.resizeObserver = new ResizeObserver(() => this.checkHeight());
+      this.resizeObserver.observe(this.html);
     }
   }
 
   public ngOnDestroy(): void {
-    if (this.resizeObserver() && this.document) {
-      this.removeStyle(this.container(), this.cssAttribute());
-      this.resizeObserver().unobserve(this.html);
+    const container = this.container();
+    if (this.resizeObserver && this.document && container) {
+      this.removeStyle(container, this.cssAttribute());
+      this.resizeObserver.unobserve(this.html);
     }
   }
 
   private checkHeight(): void {
     const height = this.html.offsetHeight;
-    if (this.offsetHeight() !== height) {
-      this.setStyle(this.container(), this.cssAttribute(), height);
+    const container = this.container();
+    if (this.offsetHeight() !== height && container) {
+      this.setStyle(container, this.cssAttribute(), height);
       this.offsetHeight.set(height);
     }
   }
