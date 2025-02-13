@@ -11,7 +11,6 @@ describe('NgxFixedFooterDirective', () => {
   @Component({
     template: ` <main>todo</main>
       <div ngxFixedFooter></div>`,
-    standalone: true,
     imports: [NgxFixedFooterDirective]
   })
   class TestComponent {}

@@ -16,8 +16,7 @@ import { NgxFixedFooterCssAttribute, NgxFixedFooterOptions } from './ngx-fixed-f
 import { APP_FIXED_FOOTER_OPTIONS_TOKEN } from './ngx-fixed-footer.provider';
 
 @Directive({
-  selector: '[ngxFixedFooter]',
-  standalone: true
+  selector: '[ngxFixedFooter]'
 })
 export class NgxFixedFooterDirective implements OnDestroy, OnInit {
   private readonly document = inject(DOCUMENT);
