@@ -1,4 +1,16 @@
-import { Directive, ElementRef, Renderer2, inject, input, signal } from '@angular/core';
+import {
+  DOCUMENT,
+  Directive,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  computed,
+  effect,
+  inject,
+  input,
+  signal
+} from '@angular/core';
 import { DEFAULT_FIXED_FOOTER_OPTIONS } from './ngx-fixed-footer.constants';
 import { NgxFixedFooterCssAttribute, NgxFixedFooterOptions } from './ngx-fixed-footer.interface';
 import { APP_FIXED_FOOTER_OPTIONS_TOKEN } from './ngx-fixed-footer.provider';
@@ -6,8 +18,8 @@ import { APP_FIXED_FOOTER_OPTIONS_TOKEN } from './ngx-fixed-footer.provider';
 @Directive({
   selector: '[ngxFixedFooter]'
 })
-export class NgxFixedFooterDirective {
-  // private readonly document = inject(DOCUMENT);
+export class NgxFixedFooterDirective implements OnDestroy, OnInit {
+  private readonly document = inject(DOCUMENT);
   private readonly el = inject(ElementRef);
   private readonly render = inject(Renderer2);
   private options: NgxFixedFooterOptions =
@@ -21,14 +33,11 @@ export class NgxFixedFooterDirective {
   public containerSelector = input<string>(this.options.containerSelector);
   public cssAttribute = input<NgxFixedFooterCssAttribute>(this.options.cssAttribute);
 
-  /*
   private container = computed(() => {
     const selector = this.containerSelector() || this.options.containerSelector;
     return this.document.body.querySelector<HTMLElement>(selector);
   });
-  */
 
-  /*
   constructor() {
     // swap selector
     effect(() => {
@@ -50,7 +59,6 @@ export class NgxFixedFooterDirective {
         this.prevContainerSelector.set(containerSelector);
       }
     });
-    
 
     // swap css attribute
     effect(() => {
@@ -63,7 +71,6 @@ export class NgxFixedFooterDirective {
       this.setStyle(container, cssAttribute, offsetHeight);
     });
   }
-  
 
   public ngOnInit(): void {
     if (this.hasResizeObserver && this.document) {
@@ -79,7 +86,6 @@ export class NgxFixedFooterDirective {
       this.resizeObserver.unobserve(this.html);
     }
   }
-     
 
   private checkHeight(): void {
     const height = this.html.offsetHeight;
@@ -89,7 +95,7 @@ export class NgxFixedFooterDirective {
       this.offsetHeight.set(height);
     }
   }
- 
+
   private removeStyle(container: HTMLElement, cssAttribute: NgxFixedFooterCssAttribute): void {
     if (!container) {
       throw new Error(`Cannot removeStyle to undefined container`);
@@ -107,5 +113,4 @@ export class NgxFixedFooterDirective {
   private get html(): HTMLElement {
     return this.el.nativeElement;
   }
-    */
 }
