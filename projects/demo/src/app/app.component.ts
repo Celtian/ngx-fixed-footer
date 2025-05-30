@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
+import { NgxFixedFooterDirective } from '../../../ngx-fixed-footer/src/public-api';
 import { VERSION } from '../environments/version';
 
 @Component({
