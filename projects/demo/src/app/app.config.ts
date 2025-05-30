@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideFixedFooter } from 'ngx-fixed-footer';
+import { provideFixedFooter } from '../../../ngx-fixed-footer/src/public-api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
