@@ -1,9 +1,9 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideFixedFooter } from '../../../ngx-fixed-footer/src/public-api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    // provideZonelessChangeDetection(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideFixedFooter({
       containerSelector: '[data-something]',
       cssAttribute: 'margin'
