@@ -10,7 +10,8 @@
   "license": "MIT",
   "description": "Angular directive that adds fixed footer without overlap",
   "peerDependencies": {
-    "@angular/core": ">=20"
+    "@angular/common": ">=18",
+    "@angular/core": ">=18"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -31,6 +32,6 @@
     "overlap"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   }
 }
