@@ -28,8 +28,8 @@ jobs:
       - name: ♻️ Check circular dependencies
         run: yarn check-circular-dependencies
 
-      # - name: 🧪 Run tests
-      #   run: npx jest --ci --json --coverage --testLocationInResults --outputFile=coverage/report.json
+      - name: 🧪 Run tests
+        run: npx jest --ci --json --coverage --testLocationInResults --outputFile=coverage/report.json
 
       # - name: 🧪 Create coverage report markdown
       #   uses: ArtiomTr/jest-coverage-report-action@v2
