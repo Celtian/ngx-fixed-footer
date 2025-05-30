@@ -56,6 +56,9 @@ jobs:
           verbose: true
           dry_run: true
 
+      - name: test
+        run: git status
+
       - name: 📦 Build demo app
         run: yarn build:demo --base-href https://celtian.github.io/ngx-fixed-footer/
 
