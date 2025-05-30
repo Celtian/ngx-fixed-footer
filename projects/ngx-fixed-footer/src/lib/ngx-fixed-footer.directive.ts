@@ -1,4 +1,3 @@
-import { DOCUMENT } from '@angular/common';
 import {
   Directive,
   ElementRef,
@@ -9,7 +8,8 @@ import {
   effect,
   inject,
   input,
-  signal
+  signal,
+  DOCUMENT
 } from '@angular/core';
 import { DEFAULT_FIXED_FOOTER_OPTIONS } from './ngx-fixed-footer.constants';
 import { NgxFixedFooterCssAttribute, NgxFixedFooterOptions } from './ngx-fixed-footer.interface';
