@@ -9,9 +9,9 @@ describe('NgxFixedFooterDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
 
   @Component({
+    imports: [NgxFixedFooterDirective],
     template: ` <main>todo</main>
-      <div ngxFixedFooter></div>`,
-    imports: [NgxFixedFooterDirective]
+      <div ngxFixedFooter></div>`
   })
   class TestComponent {}
 

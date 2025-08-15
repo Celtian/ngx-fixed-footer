@@ -4,10 +4,10 @@ import { VERSION } from '../environments/version';
 
 @Component({
   selector: 'app-root',
+  imports: [NgxFixedFooterDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgxFixedFooterDirective]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   public title = 'ngx-fixed-footer';
