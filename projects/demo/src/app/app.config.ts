@@ -1,9 +1,9 @@
-import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideFixedFooter } from 'ngx-fixed-footer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZonelessChangeDetection(),
+    provideBrowserGlobalErrorListeners(),
     provideFixedFooter({
       containerSelector: '[data-something]',
       cssAttribute: 'margin'
