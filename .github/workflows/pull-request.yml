@@ -22,10 +22,6 @@ jobs:
       - name: 🛠️ Sync versions
         run: yarn script:sync-projects
 
-      - name: 🛠️ Find PR
-        uses: jwalton/gh-find-current-pr@v1
-        id: findPr
-
       - name: 🧹 Lint
         run: yarn lint
 
