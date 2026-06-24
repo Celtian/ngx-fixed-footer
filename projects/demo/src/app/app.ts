@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 import { VERSION } from '../environments/version';
 
@@ -6,7 +6,8 @@ import { VERSION } from '../environments/version';
   selector: 'app-root',
   imports: [NgxFixedFooterDirective],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
   public title = 'ngx-fixed-footer';

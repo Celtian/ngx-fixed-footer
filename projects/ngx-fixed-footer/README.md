@@ -14,7 +14,7 @@
 
 > Angular directive that adds fixed footer without overlap
 
-> ✓ _Angular 21 compatible_
+> ✓ _Angular 22 compatible_
 
 Here's the [demo](http://celtian.github.io/ngx-fixed-footer/) or [stackblitz live preview](https://stackblitz.com/edit/ngx-fixed-footer) or [codesandbox live preview](https://codesandbox.io/s/ngx-fixed-footer-m4f21)
 
@@ -130,7 +130,8 @@ _Each directive can override global options._
 
 | Angular   | ngx-fixed-footer | Install                       |
 | --------- | ---------------- | ----------------------------- |
-| >= 20     | 4.x              | `yarn add ngx-fixed-footer`   |
+| >= 22     | 5.x              | `yarn add ngx-fixed-footer`   |
+| >= 20     | 4.x              | `yarn add ngx-fixed-footer@4` |
 | >= 18     | 3.x              | `yarn add ngx-fixed-footer@3` |
 | >= 14     | 2.x              | `yarn add ngx-fixed-footer@2` |
 | >= 12     | 1.x              | `yarn add ngx-fixed-footer@1` |
@@ -142,7 +143,7 @@ _None_
 
 ## 🪪 License
 
-Copyright &copy; 2021 - 2025 [Dominik Hladik](https://github.com/Celtian)
+Copyright &copy; 2021 - 2026 [Dominik Hladik](https://github.com/Celtian)
 
 All contents are licensed under the [MIT license].
 
