@@ -16,23 +16,28 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: 🗜️ Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
       - name: 🛠️ Install
         uses: ./.github/actions/cached-deps
 
       - name: 🛠️ Sync versions
-        run: yarn script:sync-projects
+        run: bun run script:sync-projects
 
       - name: 🧹 Lint
-        run: yarn lint
+        run: bun run lint
 
       - name: ♻️ Check circular dependencies
-        run: yarn check-circular-dependencies
+        run: bun run check-circular-dependencies
 
       - name: 🧪 Run tests (ngx-fixed-footer)
-        run: yarn test ngx-fixed-footer --coverage
+        run: bun run test ngx-fixed-footer --coverage
 
       - name: 🧪 Run tests (demo)
-        run: yarn test demo --coverage
+        run: bun run test demo --coverage
 
       - name: 🧪 Report code coverage
         uses: ./.github/actions/report-pr
@@ -48,7 +53,7 @@ jobs:
           dry_run: true
 
       - name: 📦 Build demo app
-        run: yarn build:demo --base-href https://celtian.github.io/ngx-fixed-footer/
+        run: bun run build:demo --base-href https://celtian.github.io/ngx-fixed-footer/
 
       - name: 📦 Build ngx-fixed-footer
-        run: yarn build
+        run: bun run build
