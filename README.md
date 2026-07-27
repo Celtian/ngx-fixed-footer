@@ -24,10 +24,10 @@ Here's the [demo](http://celtian.github.io/ngx-fixed-footer/) or [stackblitz liv
 
 ## 🛠️ Install
 
-1. Use yarn (or npm) to install the package
+1. Use Bun to install the package
 
 ```terminal
-yarn add ngx-fixed-footer
+bun add ngx-fixed-footer
 ```
 
 2. Add NgxFixedFooterModule into your module `imports`
@@ -128,14 +128,14 @@ _Each directive can override global options._
 
 ## 🔧 Compatibility
 
-| Angular   | ngx-fixed-footer | Install                       |
-| --------- | ---------------- | ----------------------------- |
-| >= 22     | 5.x              | `yarn add ngx-fixed-footer`   |
-| >= 20     | 4.x              | `yarn add ngx-fixed-footer@4` |
-| >= 18     | 3.x              | `yarn add ngx-fixed-footer@3` |
-| >= 14     | 2.x              | `yarn add ngx-fixed-footer@2` |
-| >= 12     | 1.x              | `yarn add ngx-fixed-footer@1` |
-| >= 5 < 13 | 0.x              | `yarn add ngx-fixed-footer@0` |
+| Angular   | ngx-fixed-footer | Install                      |
+| --------- | ---------------- | ---------------------------- |
+| >= 22     | 5.x              | `bun add ngx-fixed-footer`   |
+| >= 20     | 4.x              | `bun add ngx-fixed-footer@4` |
+| >= 18     | 3.x              | `bun add ngx-fixed-footer@3` |
+| >= 14     | 2.x              | `bun add ngx-fixed-footer@2` |
+| >= 12     | 1.x              | `bun add ngx-fixed-footer@1` |
+| >= 5 < 13 | 0.x              | `bun add ngx-fixed-footer@0` |
 
 ## 📦 Dependencies
 
