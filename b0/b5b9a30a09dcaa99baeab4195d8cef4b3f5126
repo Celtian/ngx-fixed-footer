@@ -1,0 +1,18 @@
+CHANGELOG.md
+  h_aa1f579535d063 7-10,13-14,19
+package.json
+  h_aa1f579535d063 3
+projects/ngx-fixed-footer/package.json
+  h_aa1f579535d063 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b0b5b9a30a09dcaa99baeab4195d8cef4b3f5126",
+  "prompts": {},
+  "humans": {
+    "h_aa1f579535d063": {
+      "author": "Celtian <dominik.hladik@seznam.cz>"
+    }
+  }
+}
